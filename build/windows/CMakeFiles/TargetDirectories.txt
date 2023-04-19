@@ -1,0 +1,13 @@
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/CMakeFiles/admin_flutter.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/CMakeFiles/ALL_BUILD.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/plugins/flutter_secure_storage_windows/CMakeFiles/flutter_secure_storage_windows_plugin.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/plugins/flutter_secure_storage_windows/CMakeFiles/INSTALL.dir
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/plugins/flutter_secure_storage_windows/CMakeFiles/ALL_BUILD.dir

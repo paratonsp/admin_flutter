@@ -1,0 +1,15 @@
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/icudtl.dat
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/flutter_windows.dll
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/flutter_secure_storage_windows_plugin.dll
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/astranaut.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/card_logos/amex.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/card_logos/discover.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/card_logos/mastercard.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/card_logos/visa.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/assets/logo.png
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/Users/parat/OneDrive/Dokumen/Github/admin_flutter/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
