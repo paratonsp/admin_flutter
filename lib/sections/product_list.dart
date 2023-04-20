@@ -22,7 +22,6 @@ class ProductList extends StatefulWidget {
 }
 
 class _ProductListState extends State<ProductList> {
-  final ScrollController _scrollController = ScrollController();
   bool isLoad = true;
   List<Product> product = [];
 
@@ -76,7 +75,8 @@ class _ProductListState extends State<ProductList> {
                       child: Text("Empty Data"),
                     )
                   : ListView.builder(
-                      controller: _scrollController,
+                      padding: EdgeInsets.zero,
+                      physics: const BouncingScrollPhysics(),
                       itemCount: product.length,
                       itemBuilder: (context, index) {
                         var data = product[index];
@@ -87,9 +87,11 @@ class _ProductListState extends State<ProductList> {
                         }
                         return TextButton(
                           style: TextButton.styleFrom(
-                              primary: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(0))),
+                            primary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(0),
+                            ),
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 16.0,
@@ -98,7 +100,6 @@ class _ProductListState extends State<ProductList> {
                             child: Row(
                               children: [
                                 Expanded(
-                                  flex: 1,
                                   child: Row(
                                     children: [
                                       CircleAvatar(
@@ -314,7 +315,7 @@ class _FormModalProductState extends State<FormModalProduct> {
       file = (await FilePicker.platform.pickFiles(
         type: FileType.image,
         allowMultiple: false,
-        allowedExtensions: ['jpg', 'jpeg', 'png'],
+        // allowedExtensions: ['jpg', 'jpeg', 'png'],
         lockParentWindow: false,
       ))
           ?.files;
@@ -375,134 +376,136 @@ class _FormModalProductState extends State<FormModalProduct> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints:
-          const BoxConstraints(minWidth: 250, maxWidth: 250, maxHeight: 500),
+      constraints: const BoxConstraints(maxWidth: 250, maxHeight: 500),
       padding: EdgeInsets.all(Styles.defaultPadding),
-      child: Form(
-        key: formkey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.message,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                (widget.isEdit)
-                    ? IconButton(
-                        icon: Icon(
-                          Icons.delete,
-                          color: Styles.defaultRedColor,
-                        ),
-                        splashRadius: 20,
-                        onPressed: () {
-                          deleteFormProduct(widget.id);
-                        })
-                    : const SizedBox(),
-              ],
-            ),
-            SizedBox(height: Styles.defaultPadding),
-            file != null
-                ? GestureDetector(
-                    onTap: () {
-                      _pickFiles();
-                    },
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(Styles.defaultPadding),
-                        image: DecorationImage(
-                          image: FileImage(
-                            File(filePath.toString()),
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  )
-                : GestureDetector(
-                    onTap: () {
-                      _pickFiles();
-                    },
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(Styles.defaultPadding),
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            gambar ??=
-                                'https://is3.cloudhost.id/paratonsp-storage/no-image.png',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Form(
+          key: formkey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.message,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-            SizedBox(height: Styles.defaultPadding),
-            TextFormField(
-              controller: namaController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter product name';
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                fillColor: Colors.white,
-                hintText: "Name",
-                labelText: "Name",
-                border: InputBorder.none,
+                  (widget.isEdit)
+                      ? IconButton(
+                          icon: Icon(
+                            Icons.delete,
+                            color: Styles.defaultRedColor,
+                          ),
+                          splashRadius: 20,
+                          onPressed: () {
+                            deleteFormProduct(widget.id);
+                          })
+                      : const SizedBox(),
+                ],
               ),
-            ),
-            TextFormField(
-              controller: deskripsiController,
-              maxLines: 3,
-              decoration: const InputDecoration(
-                fillColor: Colors.white,
-                hintText: "Description",
-                labelText: "Description",
-                border: InputBorder.none,
+              SizedBox(height: Styles.defaultPadding),
+              file != null
+                  ? GestureDetector(
+                      onTap: () {
+                        _pickFiles();
+                      },
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Styles.defaultPadding),
+                          image: DecorationImage(
+                            image: FileImage(
+                              File(filePath.toString()),
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        _pickFiles();
+                      },
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Styles.defaultPadding),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              gambar ??=
+                                  'https://is3.cloudhost.id/paratonsp-storage/no-image.png',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+              SizedBox(height: Styles.defaultPadding),
+              TextFormField(
+                controller: namaController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter product name';
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  hintText: "Name",
+                  labelText: "Name",
+                  border: InputBorder.none,
+                ),
               ),
-            ),
-            TextFormField(
-              controller: stokController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter product stock';
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                fillColor: Colors.white,
-                hintText: "Stock",
-                labelText: "Stock",
-                suffixText: "Pcs",
-                border: InputBorder.none,
+              TextFormField(
+                controller: deskripsiController,
+                maxLines: 3,
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  hintText: "Description",
+                  labelText: "Description",
+                  border: InputBorder.none,
+                ),
               ),
-            ),
-            SizedBox(height: Styles.defaultPadding),
-            SizedBox(
-              width: 250,
-              child: CupertinoButton.filled(
-                  child: const Text("Save"),
-                  onPressed: () {
-                    if (formkey.currentState!.validate()) {
-                      saveFormProduct(
-                        widget.isEdit,
-                        namaController,
-                        deskripsiController,
-                        stokController,
-                        widget.id,
-                      );
-                    }
-                  }),
-            ),
-          ],
+              TextFormField(
+                controller: stokController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter product stock';
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  hintText: "Stock",
+                  labelText: "Stock",
+                  suffixText: "Pcs",
+                  border: InputBorder.none,
+                ),
+              ),
+              SizedBox(height: Styles.defaultPadding),
+              SizedBox(
+                width: 250,
+                child: CupertinoButton.filled(
+                    child: const Text("Save"),
+                    onPressed: () {
+                      if (formkey.currentState!.validate()) {
+                        saveFormProduct(
+                          widget.isEdit,
+                          namaController,
+                          deskripsiController,
+                          stokController,
+                          widget.id,
+                        );
+                      }
+                    }),
+              ),
+            ],
+          ),
         ),
       ),
     );

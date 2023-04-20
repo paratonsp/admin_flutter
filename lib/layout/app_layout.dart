@@ -47,110 +47,114 @@ class _AppLayoutState extends State<AppLayout> {
         break;
     }
     return Scaffold(
-      body: Responsive(
-        mobile: Column(
-          children: [
-            topAppBar(),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: switchBody,
+      body: SafeArea(
+        child: Responsive(
+          mobile: Column(
+            children: [
+              topAppBar(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: switchBody,
+                ),
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        NavigationButton(
-                          onPressed: () {
-                            setState(() {
-                              section = NavigationItems.home;
-                            });
-                          },
-                          icon: Icons.home,
-                          isActive: NavigationItems.home == section,
-                        ),
-                        NavigationButton(
-                          onPressed: () {
-                            setState(() {
-                              section = NavigationItems.product;
-                            });
-                          },
-                          icon: Icons.inventory_2_outlined,
-                          isActive: NavigationItems.product == section,
-                        ),
-                      ]),
-                ],
-              ),
-            ),
-          ],
-        ),
-        desktop: Row(
-          children: [
-            Container(
-              constraints: const BoxConstraints(minWidth: 80),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Image.asset("assets/logo.png", height: 50),
-                  ),
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        NavigationButton(
-                          onPressed: () {
-                            setState(() {
-                              section = NavigationItems.home;
-                            });
-                          },
-                          icon: Icons.home,
-                          isActive: NavigationItems.home == section,
-                        ),
-                        NavigationButton(
-                          onPressed: () {
-                            setState(() {
-                              section = NavigationItems.product;
-                            });
-                          },
-                          icon: Icons.inventory_2_outlined,
-                          isActive: NavigationItems.product == section,
-                        ),
-                      ]),
-                  Container()
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10.0, bottom: 20.0),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    topAppBar(),
-                    Expanded(
-                      child: switchBody,
-                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          NavigationButton(
+                            onPressed: () {
+                              setState(() {
+                                section = NavigationItems.home;
+                              });
+                            },
+                            icon: Icons.home,
+                            isActive: NavigationItems.home == section,
+                          ),
+                          NavigationButton(
+                            onPressed: () {
+                              setState(() {
+                                section = NavigationItems.product;
+                              });
+                            },
+                            icon: Icons.inventory_2_outlined,
+                            isActive: NavigationItems.product == section,
+                          ),
+                        ]),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+          desktop: Row(
+            children: [
+              Container(
+                constraints: const BoxConstraints(minWidth: 80),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Image.asset("assets/logo.png", height: 50),
+                    ),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          NavigationButton(
+                            onPressed: () {
+                              setState(() {
+                                section = NavigationItems.home;
+                              });
+                            },
+                            icon: Icons.home,
+                            isActive: NavigationItems.home == section,
+                          ),
+                          NavigationButton(
+                            onPressed: () {
+                              setState(() {
+                                section = NavigationItems.product;
+                              });
+                            },
+                            icon: Icons.inventory_2_outlined,
+                            isActive: NavigationItems.product == section,
+                          ),
+                        ]),
+                    Container()
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 5,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10.0, bottom: 20.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      topAppBar(),
+                      Expanded(
+                        child: switchBody,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

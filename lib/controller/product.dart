@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 getProduct(context) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/products";
+  String url = "https://suryaindomakmur.site/api/products";
 
   Uri parseUrl = Uri.parse(url);
   final response =
@@ -33,7 +33,7 @@ getProduct(context) async {
 createProduct(context, name, description, stock, imageName, imagePath) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/products";
+  String url = "https://suryaindomakmur.site/api/products";
 
   Map<String, String> data = {
     'nama_produk': name,
@@ -70,7 +70,7 @@ updateProduct(
     context, name, description, stock, id, imageName, imagePath) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/products/$id";
+  String url = "https://suryaindomakmur.site/api/products/$id";
 
   Map<String, String> data = {
     'nama_produk': name,
@@ -106,7 +106,7 @@ updateProduct(
 deleteProduct(context, id) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/products/$id";
+  String url = "https://suryaindomakmur.site/api/products/$id";
 
   Uri parseUrl = Uri.parse(url);
   final response =

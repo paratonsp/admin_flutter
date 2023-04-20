@@ -7,7 +7,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 login(String email, password) async {
-  String url = "http://103.54.170.102:8080/login";
+  String url = "https://suryaindomakmur.site/login";
 
   Map data = {'username': email, 'password': password};
   var body = jsonEncode(data);
@@ -22,7 +22,7 @@ login(String email, password) async {
 logout() async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/logout";
+  String url = "https://suryaindomakmur.site/logout";
 
   Uri parseUrl = Uri.parse(url);
   final response =
@@ -34,7 +34,7 @@ logout() async {
 ping() async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/ping";
+  String url = "https://suryaindomakmur.site/api/ping";
 
   Uri parseUrl = Uri.parse(url);
   final response =
