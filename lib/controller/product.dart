@@ -30,53 +30,76 @@ getProduct(context) async {
   }
 }
 
-createProduct(context, name, description, stock) async {
+createProduct(context, name, description, stock, imageName, imagePath) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
   String url = "http://103.54.170.102:8080/api/products";
 
-  Map data = {
+  Map<String, String> data = {
     'nama_produk': name,
     'deskripsi': description,
-    'gambar': '',
-    'stok': int.parse(stock),
+    'stok': stock,
   };
-  var body = jsonEncode(data);
 
   Uri parseUrl = Uri.parse(url);
-  final response = await http.post(parseUrl,
-      headers: {"Cookie": token.toString()}, body: body);
+
+  var request = http.MultipartRequest('POST', parseUrl);
+  request.headers['Cookie'] = token.toString();
+
+  if (imagePath != '') {
+    var file = await http.MultipartFile.fromPath("assets", imagePath,
+        filename: imageName);
+    request.files.add(file);
+  }
+
+  request.fields.addAll(data);
+
+  final response = await request.send();
+  final res = await response.stream.bytesToString();
+  var resDecode = jsonDecode(res);
 
   if (response.statusCode == 401) {
     unauthorized(context);
     return;
   } else {
-    return response;
+    return resDecode['message'];
   }
 }
 
-editProduct(context, name, description, stock, id) async {
+updateProduct(
+    context, name, description, stock, id, imageName, imagePath) async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
   String url = "http://103.54.170.102:8080/api/products/$id";
 
-  Map data = {
+  Map<String, String> data = {
     'nama_produk': name,
     'deskripsi': description,
-    'gambar': '',
-    'stok': int.parse(stock),
+    'stok': stock,
   };
-  var body = jsonEncode(data);
 
   Uri parseUrl = Uri.parse(url);
-  final response = await http.patch(parseUrl,
-      headers: {"Cookie": token.toString()}, body: body);
+
+  var request = http.MultipartRequest('PATCH', parseUrl);
+  request.headers['Cookie'] = token.toString();
+
+  if (imagePath != '') {
+    var file = await http.MultipartFile.fromPath("assets", imagePath,
+        filename: imageName);
+    request.files.add(file);
+  }
+
+  request.fields.addAll(data);
+
+  final response = await request.send();
+  final res = await response.stream.bytesToString();
+  var resDecode = jsonDecode(res);
 
   if (response.statusCode == 401) {
     unauthorized(context);
     return;
   } else {
-    return response;
+    return resDecode['message'];
   }
 }
 

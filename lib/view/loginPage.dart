@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   checkToken() async {
-    await check().then((val) {
+    await ping().then((val) {
       if (val) {
         Timer(const Duration(milliseconds: 1500), () {
           Navigator.pushReplacement<void, void>(

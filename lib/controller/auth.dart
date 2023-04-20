@@ -31,10 +31,10 @@ logout() async {
   return response;
 }
 
-check() async {
+ping() async {
   const storage = FlutterSecureStorage();
   String? token = await storage.read(key: "token");
-  String url = "http://103.54.170.102:8080/api/check";
+  String url = "http://103.54.170.102:8080/api/ping";
 
   Uri parseUrl = Uri.parse(url);
   final response =
