@@ -1,5 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -365,7 +366,9 @@ class _FormModalProductState extends State<FormModalProduct> {
       namaController.dispose();
       deskripsiController.dispose();
       stokController.dispose();
-    } catch (e) {}
+    } catch (e) {
+      log(e.toString());
+    }
     super.dispose();
   }
 

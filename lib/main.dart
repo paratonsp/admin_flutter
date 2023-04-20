@@ -1,13 +1,16 @@
 import 'package:admin_flutter/styles/styles.dart';
 import 'package:admin_flutter/view/loginPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const FintechDasboardApp());
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  runApp(const MyApp());
 }
 
-class FintechDasboardApp extends StatelessWidget {
-  const FintechDasboardApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

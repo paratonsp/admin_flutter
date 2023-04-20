@@ -109,8 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                       onSubmitted: (x) => loginButton(),
                       decoration: const InputDecoration(
                         fillColor: Colors.white,
-                        hintText: "Email",
-                        icon: Icon(CupertinoIcons.mail),
+                        hintText: "Username",
+                        icon: Icon(CupertinoIcons.person),
                         border: InputBorder.none,
                       ),
                     ),
